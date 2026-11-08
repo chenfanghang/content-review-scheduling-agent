@@ -22,14 +22,17 @@ AgentScope 2.0.11 的 `Agent`、`Toolkit`、`FunctionTool` 和 `OpenAIChatModel`
 
 ## 技术选型与取舍
 
-| 决策 | 考虑的方案 | 本项目选择与原因 |
-| --- | --- | --- |
-| 开发语言与运行入口 | Python CLI、HTTP API、Notebook | 使用 Python CLI，便于评审通过命令复现工具调用和测试，符合单机考核范围；HTTP 服务与交互界面留给后续业务接入。 |
-| Agent 框架 | 原生工具循环、AgentScope、LangGraph、Google ADK | 原型先采用原生循环，随后选择 AgentScope：其 Agent、工具管理和 Skill 支持贴合本项目的单 Agent 场景。LangGraph 更适合需要显式管理复杂状态、持久化与中断恢复的流程；ADK 也可实现本题。对比基于项目需求和框架定位，并未进行框架性能基准测试。 |
-| 模型与离线运行 | OpenCode Go 的 DeepSeek、离线 Mock | 使用已有的 `deepseek-v4.1-flash` 账户运行真实工具调用；Mock 用于无密钥时复现流程。模型选择基于现有可用性与工具调用需求，未对不同模型做质量或成本对比。 |
-| 草稿存储 | 内存、SQLite、外部数据库 | SQLite 不需要额外服务，能跨 CLI 调用保留草稿，并以事务核对冲突和重复请求；更大规模的多人部署需重新评估存储方案。 |
-| 执行结构 | 单 Agent、多 Agent | 单 Agent 调用四类业务工具即可覆盖题目核心链路，便于观察模型与工具结果的关系；本项目没有将任务分派给多个 Agent。 |
-| 评测与追踪 | 基础测试、DeepEval、Ragas；业务 JSON Trace、OpenTelemetry | 基础测试验证业务行为；DeepEval 使用自定义确定性指标整理固定场景结果。Ragas 也支持 Agent 指标，本项目未同时引入两套评测框架。业务 JSON Trace 便于评审核对，AgentScope 的 OpenTelemetry 中间件补充调用链；未部署可视化追踪服务。 |
+**Python 与 CLI。** 项目使用 Python 实现，CLI 负责接收素材请求和输出结果。评审可以通过命令直接运行案例、查看 Trace 和执行测试，适合本次单机交付。
+
+**AgentScope。** 项目先用原生工具循环打通链路，再采用 AgentScope 组织 Agent、工具和 Skill。AgentScope 提供的工具调用与 Skill 加载机制适合本题的单 Agent 流程。方案讨论中也考虑过 LangGraph 和 Google ADK；LangGraph 适合需要显式编排复杂状态和中断恢复的流程，ADK 同样提供 Agent 和工具能力。本次选型优先考虑当前业务范围与可解释性。
+
+**DeepSeek 与离线 Mock。** 真实模型使用 OpenCode Go 的 `deepseek-v4.1-flash`，通过兼容接口完成模型决策和工具调用；离线 Mock 用于本地复现流程。模型选择基于现有账户可用性和工具调用需求。
+
+**SQLite。** 草稿需要跨 CLI 调用保存，并支持去重和时段冲突检查。SQLite 无需额外启动数据库服务，写事务也适合本项目的本地草稿操作。
+
+**单 Agent。** 素材读取、审核、时段查询和草稿保存由一个 Agent 调用四类工具完成，运行记录集中在同一条调用链中，便于核对模型如何根据工具结果调整行动。
+
+**DeepEval 与 OpenTelemetry。** DeepEval 使用确定性业务指标评估固定场景，测试实际状态和草稿结果；方案讨论中也考虑过支持 Agent 指标的 Ragas。业务 JSON Trace 用于核对工具参数、返回和后续动作，AgentScope 的 OpenTelemetry 中间件补充模型和工具调用链。
 
 ## 代码与技术取舍
 

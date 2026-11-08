@@ -1,0 +1,97 @@
+{
+  "status": "pending_confirmation",
+  "material_id": "M01",
+  "review_status": "passed",
+  "risk_reasons": [],
+  "requested_time": "2026-12-01T18:00",
+  "suggested_time": "2026-12-01T19:00",
+  "confirmation_status": "pending",
+  "draft_status": "saved",
+  "review": {
+    "status": "passed",
+    "reasons": []
+  },
+  "draft": {
+    "material_id": "M01",
+    "requested_time": "2026-12-01T18:00",
+    "hard_requirement": true,
+    "suggested_time": "2026-12-01T19:00",
+    "confirmation_status": "pending",
+    "draft_id": 2,
+    "draft_status": "saved"
+  },
+  "reason": null,
+  "trace": [
+    {
+      "step": 1,
+      "tool": "Skill",
+      "arguments": {
+        "skill": "content-scheduling"
+      },
+      "result": {
+        "status": "read"
+      },
+      "decision_basis": null
+    },
+    {
+      "step": 2,
+      "tool": "read_material",
+      "arguments": {},
+      "result": {
+        "found": true,
+        "material": {
+          "title": "字幕功能介绍",
+          "description": "介绍字幕功能",
+          "risk": "none"
+        },
+        "missing": []
+      },
+      "decision_basis": "上一工具观察：Skill {\"status\": \"read\"}",
+      "basis_source": "previous_tool_observation"
+    },
+    {
+      "step": 3,
+      "tool": "check_rules",
+      "arguments": {},
+      "result": {
+        "status": "passed",
+        "reasons": []
+      },
+      "decision_basis": "上一工具观察：read_material {\"found\": true, \"material\": {\"title\": \"字幕功能介绍\", \"description\": \"介绍字幕功能\", \"risk\": \"none\"}, \"missing\": []}",
+      "basis_source": "previous_tool_observation"
+    },
+    {
+      "step": 4,
+      "tool": "query_slots",
+      "arguments": {},
+      "result": {
+        "requested_time": "2026-12-01T18:00",
+        "available": false,
+        "alternatives": [
+          "2026-12-01T19:00",
+          "2026-12-01T20:00"
+        ]
+      },
+      "decision_basis": "上一工具观察：check_rules {\"status\": \"passed\", \"reasons\": []}",
+      "basis_source": "previous_tool_observation"
+    },
+    {
+      "step": 5,
+      "tool": "save_draft",
+      "arguments": {
+        "proposed_time": "2026-12-01T19:00"
+      },
+      "result": {
+        "material_id": "M01",
+        "requested_time": "2026-12-01T18:00",
+        "hard_requirement": true,
+        "suggested_time": "2026-12-01T19:00",
+        "confirmation_status": "pending",
+        "draft_id": 2,
+        "draft_status": "saved"
+      },
+      "decision_basis": "上一工具观察：query_slots {\"requested_time\": \"2026-12-01T18:00\", \"available\": false, \"alternatives\": [\"2026-12-01T19:00\", \"2026-12-01T20:00\"]}",
+      "basis_source": "previous_tool_observation"
+    }
+  ]
+}

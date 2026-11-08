@@ -1,0 +1,653 @@
+{
+  "framework": "DeepEval",
+  "metric": "排期业务正确性",
+  "runs": [
+    {
+      "case": "normal",
+      "model": "opencode",
+      "classification": "passed",
+      "score": 1.0,
+      "reason": "业务断言通过",
+      "elapsed_seconds": 11.48,
+      "results": [
+        {
+          "status": "completed",
+          "material_id": "M01",
+          "review_status": "passed",
+          "risk_reasons": [],
+          "requested_time": "2026-12-01T17:00",
+          "suggested_time": "2026-12-01T17:00",
+          "confirmation_status": "not_required",
+          "draft_status": "saved",
+          "review": {
+            "status": "passed",
+            "reasons": []
+          },
+          "draft": {
+            "material_id": "M01",
+            "requested_time": "2026-12-01T17:00",
+            "hard_requirement": true,
+            "suggested_time": "2026-12-01T17:00",
+            "confirmation_status": "not_required",
+            "draft_id": 1,
+            "draft_status": "saved"
+          },
+          "reason": null,
+          "trace": [
+            {
+              "step": 1,
+              "tool": "Skill",
+              "arguments": {
+                "skill": "content-scheduling"
+              },
+              "result": {
+                "status": "read"
+              },
+              "decision_basis": null
+            },
+            {
+              "step": 2,
+              "tool": "read_material",
+              "arguments": {},
+              "result": {
+                "found": true,
+                "material": {
+                  "title": "字幕功能介绍",
+                  "description": "介绍字幕功能",
+                  "risk": "none"
+                },
+                "missing": []
+              },
+              "decision_basis": "I'll start by reading the content-scheduling skill instructions."
+            },
+            {
+              "step": 3,
+              "tool": "check_rules",
+              "arguments": {},
+              "result": {
+                "status": "passed",
+                "reasons": []
+              },
+              "decision_basis": "I'll start by reading the content-scheduling skill instructions."
+            },
+            {
+              "step": 4,
+              "tool": "query_slots",
+              "arguments": {},
+              "result": {
+                "requested_time": "2026-12-01T17:00",
+                "available": true,
+                "alternatives": [
+                  "2026-12-01T19:00",
+                  "2026-12-01T20:00"
+                ]
+              },
+              "decision_basis": "I'll start by reading the content-scheduling skill instructions."
+            },
+            {
+              "step": 5,
+              "tool": "save_draft",
+              "arguments": {
+                "proposed_time": "2026-12-01T17:00"
+              },
+              "result": {
+                "material_id": "M01",
+                "requested_time": "2026-12-01T17:00",
+                "hard_requirement": true,
+                "suggested_time": "2026-12-01T17:00",
+                "confirmation_status": "not_required",
+                "draft_id": 1,
+                "draft_status": "saved"
+              },
+              "decision_basis": "I'll start by reading the content-scheduling skill instructions."
+            }
+          ]
+        }
+      ],
+      "drafts": [
+        {
+          "id": 1,
+          "material_id": "M01",
+          "requested_time": "2026-12-01T17:00",
+          "hard_requirement": true,
+          "suggested_time": "2026-12-01T17:00",
+          "confirmation_status": "not_required"
+        }
+      ]
+    },
+    {
+      "case": "conflict",
+      "model": "opencode",
+      "classification": "passed",
+      "score": 1.0,
+      "reason": "业务断言通过",
+      "elapsed_seconds": 17.36,
+      "results": [
+        {
+          "status": "pending_confirmation",
+          "material_id": "M01",
+          "review_status": "passed",
+          "risk_reasons": [],
+          "requested_time": "2026-12-01T18:00",
+          "suggested_time": "2026-12-01T19:00",
+          "confirmation_status": "pending",
+          "draft_status": "saved",
+          "review": {
+            "status": "passed",
+            "reasons": []
+          },
+          "draft": {
+            "material_id": "M01",
+            "requested_time": "2026-12-01T18:00",
+            "hard_requirement": true,
+            "suggested_time": "2026-12-01T19:00",
+            "confirmation_status": "pending",
+            "draft_id": 1,
+            "draft_status": "saved"
+          },
+          "reason": null,
+          "trace": [
+            {
+              "step": 1,
+              "tool": "Skill",
+              "arguments": {
+                "skill": "content-scheduling"
+              },
+              "result": {
+                "status": "read"
+              },
+              "decision_basis": null
+            },
+            {
+              "step": 2,
+              "tool": "read_material",
+              "arguments": {},
+              "result": {
+                "found": true,
+                "material": {
+                  "title": "字幕功能介绍",
+                  "description": "介绍字幕功能",
+                  "risk": "none"
+                },
+                "missing": []
+              },
+              "decision_basis": "我先读取 content-scheduling 技能说明，确保按流程处理。"
+            },
+            {
+              "step": 3,
+              "tool": "check_rules",
+              "arguments": {},
+              "result": {
+                "status": "passed",
+                "reasons": []
+              },
+              "decision_basis": "我先读取 content-scheduling 技能说明，确保按流程处理。"
+            },
+            {
+              "step": 4,
+              "tool": "query_slots",
+              "arguments": {},
+              "result": {
+                "requested_time": "2026-12-01T18:00",
+                "available": false,
+                "alternatives": [
+                  "2026-12-01T19:00",
+                  "2026-12-01T20:00"
+                ]
+              },
+              "decision_basis": "我先读取 content-scheduling 技能说明，确保按流程处理。"
+            },
+            {
+              "step": 5,
+              "tool": "save_draft",
+              "arguments": {
+                "proposed_time": "2026-12-01T19:00"
+              },
+              "result": {
+                "material_id": "M01",
+                "requested_time": "2026-12-01T18:00",
+                "hard_requirement": true,
+                "suggested_time": "2026-12-01T19:00",
+                "confirmation_status": "pending",
+                "draft_id": 1,
+                "draft_status": "saved"
+              },
+              "decision_basis": "我先读取 content-scheduling 技能说明，确保按流程处理。"
+            }
+          ]
+        }
+      ],
+      "drafts": [
+        {
+          "id": 1,
+          "material_id": "M01",
+          "requested_time": "2026-12-01T18:00",
+          "hard_requirement": true,
+          "suggested_time": "2026-12-01T19:00",
+          "confirmation_status": "pending"
+        }
+      ]
+    },
+    {
+      "case": "missing",
+      "model": "opencode",
+      "classification": "passed",
+      "score": 1.0,
+      "reason": "业务断言通过",
+      "elapsed_seconds": 8.52,
+      "results": [
+        {
+          "status": "incomplete",
+          "material_id": "M02",
+          "review_status": "not_reviewed",
+          "risk_reasons": [],
+          "requested_time": "2026-12-01T17:00",
+          "suggested_time": null,
+          "confirmation_status": null,
+          "draft_status": "not_saved",
+          "review": null,
+          "draft": null,
+          "reason": "我按流程执行了第一步（读取素材），结果如下：\n\n**素材读取结果：M02**\n- 素材存在：是\n- 标题：信息不完整\n- 描述（description）：**缺失**\n- 风险标记：none\n\n**处理结论：暂停，不继续后续步骤。**\n\n依据排期技能第 1 条规则：素材不存在或缺少必要信息时，需要先说明缺口并停止。当前缺少 `description` 字段，属于必要信息缺失，因此我没有进行审核规则检查、时段查询，也没有保存草稿。\n\n**需要你补充：**\n1. M02 的素材描述/正文内容（`description`）；\n2. 补充后我会继续执行后续步骤：先检查审核规则；如果审核通过，再查询 `2026-12-01T17:00`（硬性要求）时段。\n\n**另外提醒：**你指定的是硬性时间（hard_requirement=true）。如果后续查询发现该时段不可用，我不会自行将它改成其他时间，也不会称它“已确认”，只会报告冲突并等你决定如何处理。此外，即使保存成功，那也只是草稿，并不代表已经发布。",
+          "trace": [
+            {
+              "step": 1,
+              "tool": "Skill",
+              "arguments": {
+                "skill": "content-scheduling"
+              },
+              "result": {
+                "status": "read"
+              },
+              "decision_basis": null
+            },
+            {
+              "step": 2,
+              "tool": "read_material",
+              "arguments": {},
+              "result": {
+                "found": true,
+                "material": {
+                  "title": "信息不完整",
+                  "description": "",
+                  "risk": "none"
+                },
+                "missing": [
+                  "description"
+                ]
+              },
+              "decision_basis": "我先读取内容排期技能，以便按正确流程操作。"
+            }
+          ]
+        }
+      ],
+      "drafts": []
+    },
+    {
+      "case": "risk",
+      "model": "opencode",
+      "classification": "passed",
+      "score": 1.0,
+      "reason": "业务断言通过",
+      "elapsed_seconds": 9.14,
+      "results": [
+        {
+          "status": "blocked",
+          "material_id": "M03",
+          "review_status": "blocked",
+          "risk_reasons": [
+            "包含未经证实的绝对化宣传"
+          ],
+          "requested_time": "2026-12-01T17:00",
+          "suggested_time": null,
+          "confirmation_status": null,
+          "draft_status": "not_saved",
+          "review": {
+            "status": "blocked",
+            "reasons": [
+              "包含未经证实的绝对化宣传"
+            ]
+          },
+          "draft": null,
+          "reason": "处理已停止：素材 M03 未通过审核，无法排期或保存草稿。\n\n**第 1 步 — 素材读取**\n- 素材 M03 存在，标题为“夸大宣传”，描述为“未经证实的绝对化宣传”；必要字段无缺失。\n\n**第 2 步 — 审核规则检查**\n- 结果：**blocked（阻断）**\n- 原因：其包含未经证实的绝对化宣传，且素材自身风险标记为 `block`。\n\n依据技能流程，存在阻断风险时须说明原因并停止，因此：\n- 我未查询时段（2026-12-01T17:00 是否可用尚未核实）。\n- 未保存草稿，也未做任何排期变更。\n\n**建议的下一步**：请修改素材文案，删除绝对化、未经证实的表述（如“最”“第一”“100%”等）并补充可证实的依据，然后重新提交审核。需要我在素材修订后重新走一遍审核与时段查询流程吗？关于 17:00 这条硬性时间要求，届时我会先核实该时段是否可用，再决定是否需要你确认备选时间。",
+          "trace": [
+            {
+              "step": 1,
+              "tool": "Skill",
+              "arguments": {
+                "skill": "content-scheduling"
+              },
+              "result": {
+                "status": "read"
+              },
+              "decision_basis": null
+            },
+            {
+              "step": 2,
+              "tool": "read_material",
+              "arguments": {},
+              "result": {
+                "found": true,
+                "material": {
+                  "title": "夸大宣传",
+                  "description": "未经证实的绝对化宣传",
+                  "risk": "block"
+                },
+                "missing": []
+              },
+              "decision_basis": "我先读取 content-scheduling 技能说明，然后按流程逐步处理。"
+            },
+            {
+              "step": 3,
+              "tool": "check_rules",
+              "arguments": {},
+              "result": {
+                "status": "blocked",
+                "reasons": [
+                  "包含未经证实的绝对化宣传"
+                ]
+              },
+              "decision_basis": "我先读取 content-scheduling 技能说明，然后按流程逐步处理。"
+            }
+          ]
+        }
+      ],
+      "drafts": []
+    },
+    {
+      "case": "save_failure",
+      "model": "opencode",
+      "classification": "passed",
+      "score": 1.0,
+      "reason": "业务断言通过",
+      "elapsed_seconds": 16.51,
+      "results": [
+        {
+          "status": "incomplete",
+          "material_id": "M01",
+          "review_status": "passed",
+          "risk_reasons": [],
+          "requested_time": "2026-12-01T17:00",
+          "suggested_time": null,
+          "confirmation_status": null,
+          "draft_status": "not_saved",
+          "review": {
+            "status": "passed",
+            "reasons": []
+          },
+          "draft": null,
+          "reason": "save_draft 模拟失败",
+          "trace": [
+            {
+              "step": 1,
+              "tool": "Skill",
+              "arguments": {
+                "skill": "content-scheduling"
+              },
+              "result": {
+                "status": "read"
+              },
+              "decision_basis": null
+            },
+            {
+              "step": 2,
+              "tool": "read_material",
+              "arguments": {},
+              "result": {
+                "found": true,
+                "material": {
+                  "title": "字幕功能介绍",
+                  "description": "介绍字幕功能",
+                  "risk": "none"
+                },
+                "missing": []
+              },
+              "decision_basis": "我会先读取 content-scheduling 技能，因为这是后续任何业务工具调用的前提。"
+            },
+            {
+              "step": 3,
+              "tool": "check_rules",
+              "arguments": {},
+              "result": {
+                "status": "passed",
+                "reasons": []
+              },
+              "decision_basis": "我会先读取 content-scheduling 技能，因为这是后续任何业务工具调用的前提。"
+            },
+            {
+              "step": 4,
+              "tool": "query_slots",
+              "arguments": {},
+              "result": {
+                "requested_time": "2026-12-01T17:00",
+                "available": true,
+                "alternatives": [
+                  "2026-12-01T19:00",
+                  "2026-12-01T20:00"
+                ]
+              },
+              "decision_basis": "我会先读取 content-scheduling 技能，因为这是后续任何业务工具调用的前提。"
+            },
+            {
+              "step": 5,
+              "tool": "save_draft",
+              "arguments": {
+                "proposed_time": "2026-12-01T17:00"
+              },
+              "result": {
+                "error": "save_draft 模拟失败"
+              },
+              "decision_basis": "我会先读取 content-scheduling 技能，因为这是后续任何业务工具调用的前提。"
+            }
+          ]
+        }
+      ],
+      "drafts": []
+    },
+    {
+      "case": "repeat",
+      "model": "opencode",
+      "classification": "passed",
+      "score": 1.0,
+      "reason": "业务断言通过",
+      "elapsed_seconds": 38.08,
+      "results": [
+        {
+          "status": "completed",
+          "material_id": "M01",
+          "review_status": "passed",
+          "risk_reasons": [],
+          "requested_time": "2026-12-01T17:00",
+          "suggested_time": "2026-12-01T17:00",
+          "confirmation_status": "not_required",
+          "draft_status": "saved",
+          "review": {
+            "status": "passed",
+            "reasons": []
+          },
+          "draft": {
+            "material_id": "M01",
+            "requested_time": "2026-12-01T17:00",
+            "hard_requirement": true,
+            "suggested_time": "2026-12-01T17:00",
+            "confirmation_status": "not_required",
+            "draft_id": 1,
+            "draft_status": "saved"
+          },
+          "reason": null,
+          "trace": [
+            {
+              "step": 1,
+              "tool": "Skill",
+              "arguments": {
+                "skill": "content-scheduling"
+              },
+              "result": {
+                "status": "read"
+              },
+              "decision_basis": null
+            },
+            {
+              "step": 2,
+              "tool": "read_material",
+              "arguments": {},
+              "result": {
+                "found": true,
+                "material": {
+                  "title": "字幕功能介绍",
+                  "description": "介绍字幕功能",
+                  "risk": "none"
+                },
+                "missing": []
+              },
+              "decision_basis": "我会先读取 content-scheduling 技能，以遵循该技能规定的流程。"
+            },
+            {
+              "step": 3,
+              "tool": "check_rules",
+              "arguments": {},
+              "result": {
+                "status": "passed",
+                "reasons": []
+              },
+              "decision_basis": "我会先读取 content-scheduling 技能，以遵循该技能规定的流程。"
+            },
+            {
+              "step": 4,
+              "tool": "query_slots",
+              "arguments": {},
+              "result": {
+                "requested_time": "2026-12-01T17:00",
+                "available": true,
+                "alternatives": [
+                  "2026-12-01T19:00",
+                  "2026-12-01T20:00"
+                ]
+              },
+              "decision_basis": "我会先读取 content-scheduling 技能，以遵循该技能规定的流程。"
+            },
+            {
+              "step": 5,
+              "tool": "save_draft",
+              "arguments": {
+                "proposed_time": "2026-12-01T17:00"
+              },
+              "result": {
+                "material_id": "M01",
+                "requested_time": "2026-12-01T17:00",
+                "hard_requirement": true,
+                "suggested_time": "2026-12-01T17:00",
+                "confirmation_status": "not_required",
+                "draft_id": 1,
+                "draft_status": "saved"
+              },
+              "decision_basis": "我会先读取 content-scheduling 技能，以遵循该技能规定的流程。"
+            }
+          ]
+        },
+        {
+          "status": "completed",
+          "material_id": "M01",
+          "review_status": "passed",
+          "risk_reasons": [],
+          "requested_time": "2026-12-01T17:00",
+          "suggested_time": "2026-12-01T17:00",
+          "confirmation_status": "not_required",
+          "draft_status": "saved",
+          "review": {
+            "status": "passed",
+            "reasons": []
+          },
+          "draft": {
+            "material_id": "M01",
+            "requested_time": "2026-12-01T17:00",
+            "hard_requirement": true,
+            "suggested_time": "2026-12-01T17:00",
+            "confirmation_status": "not_required",
+            "draft_id": 1,
+            "draft_status": "saved"
+          },
+          "reason": null,
+          "trace": [
+            {
+              "step": 1,
+              "tool": "Skill",
+              "arguments": {
+                "skill": "content-scheduling"
+              },
+              "result": {
+                "status": "read"
+              },
+              "decision_basis": null
+            },
+            {
+              "step": 2,
+              "tool": "read_material",
+              "arguments": {},
+              "result": {
+                "found": true,
+                "material": {
+                  "title": "字幕功能介绍",
+                  "description": "介绍字幕功能",
+                  "risk": "none"
+                },
+                "missing": []
+              },
+              "decision_basis": "我先读取 content-scheduling 技能，以取得正确的流程。"
+            },
+            {
+              "step": 3,
+              "tool": "check_rules",
+              "arguments": {},
+              "result": {
+                "status": "passed",
+                "reasons": []
+              },
+              "decision_basis": "我先读取 content-scheduling 技能，以取得正确的流程。"
+            },
+            {
+              "step": 4,
+              "tool": "query_slots",
+              "arguments": {},
+              "result": {
+                "requested_time": "2026-12-01T17:00",
+                "available": true,
+                "alternatives": [
+                  "2026-12-01T19:00",
+                  "2026-12-01T20:00"
+                ]
+              },
+              "decision_basis": "我先读取 content-scheduling 技能，以取得正确的流程。"
+            },
+            {
+              "step": 5,
+              "tool": "save_draft",
+              "arguments": {
+                "proposed_time": "2026-12-01T17:00"
+              },
+              "result": {
+                "material_id": "M01",
+                "requested_time": "2026-12-01T17:00",
+                "hard_requirement": true,
+                "suggested_time": "2026-12-01T17:00",
+                "confirmation_status": "not_required",
+                "draft_id": 1,
+                "draft_status": "saved"
+              },
+              "decision_basis": "我先读取 content-scheduling 技能，以取得正确的流程。"
+            }
+          ]
+        }
+      ],
+      "drafts": [
+        {
+          "id": 1,
+          "material_id": "M01",
+          "requested_time": "2026-12-01T17:00",
+          "hard_requirement": true,
+          "suggested_time": "2026-12-01T17:00",
+          "confirmation_status": "not_required"
+        }
+      ]
+    }
+  ]
+}

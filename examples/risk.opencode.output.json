@@ -1,0 +1,60 @@
+{
+  "status": "blocked",
+  "material_id": "M03",
+  "review_status": "blocked",
+  "risk_reasons": [
+    "包含未经证实的绝对化宣传"
+  ],
+  "requested_time": "2026-12-01T17:00",
+  "suggested_time": null,
+  "confirmation_status": null,
+  "draft_status": "not_saved",
+  "review": {
+    "status": "blocked",
+    "reasons": [
+      "包含未经证实的绝对化宣传"
+    ]
+  },
+  "draft": null,
+  "reason": "**处理停止：素材未通过审核，未查询时段、未保存草稿。**\n\n| 项目 | 结果 |\n|---|---|\n| 素材 | M03《夸大宣传》已找到；未缺少必要字段 |\n| 审核 | **阻断**，原因是包含未经证实的绝对化宣传 |\n| 时段 | 未查询（审核未通过，无需查询） |\n| 草稿 | 未保存 |\n\n依据：\n1. 技能要求先核实素材完整性，再检查审核规则；素材字段完整，因此可以进入审核环节。\n2. 审核规则返回 `blocked`，属于阻断风险。按照技能要求“存在阻断风险时，说明原因并停止”，因此不再查询时段，也不保存草稿。\n3. 由于素材被阻断，你要求的硬性时间 2026-12-01T17:00 没有做任何调整，也没有被确认。需要你修改素材中的绝对化、未经证实的表述，使其符合宣传合规要求；修改后重新提交审核，才能继续排期。\n\n如果你希望我协助梳理具体需要修改的措辞方向，或想先确认其他素材，请告诉我。",
+  "trace": [
+    {
+      "step": 1,
+      "tool": "Skill",
+      "arguments": {
+        "skill": "content-scheduling"
+      },
+      "result": {
+        "status": "read"
+      },
+      "decision_basis": null
+    },
+    {
+      "step": 2,
+      "tool": "read_material",
+      "arguments": {},
+      "result": {
+        "found": true,
+        "material": {
+          "title": "夸大宣传",
+          "description": "未经证实的绝对化宣传",
+          "risk": "block"
+        },
+        "missing": []
+      },
+      "decision_basis": "我先读取 content-scheduling 技能。\n"
+    },
+    {
+      "step": 3,
+      "tool": "check_rules",
+      "arguments": {},
+      "result": {
+        "status": "blocked",
+        "reasons": [
+          "包含未经证实的绝对化宣传"
+        ]
+      },
+      "decision_basis": "我先读取 content-scheduling 技能。\n"
+    }
+  ]
+}

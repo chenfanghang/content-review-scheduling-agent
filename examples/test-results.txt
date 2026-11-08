@@ -1,0 +1,31 @@
+test_agent_reads_required_skill_before_business_tools (test_agent.AgentTest.test_agent_reads_required_skill_before_business_tools) ... ok
+test_batch_continues_after_incomplete_material (test_agent.AgentTest.test_batch_continues_after_incomplete_material) ... ok
+test_cancel_releases_slot_and_resubmission_creates_new_draft (test_agent.AgentTest.test_cancel_releases_slot_and_resubmission_creates_new_draft) ... ok
+test_cannot_save_unchecked_or_occupied_slot (test_agent.AgentTest.test_cannot_save_unchecked_or_occupied_slot) ... ok
+test_cli_exports_otel_trace_without_polluting_output (test_agent.AgentTest.test_cli_exports_otel_trace_without_polluting_output) ... ok
+test_conflict_requires_confirmation (test_agent.AgentTest.test_conflict_requires_confirmation) ... ok
+test_extra_metadata_does_not_create_duplicate_draft (test_agent.AgentTest.test_extra_metadata_does_not_create_duplicate_draft) ... ok
+test_invalid_requested_time_is_not_scheduled (test_agent.AgentTest.test_invalid_requested_time_is_not_scheduled) ... ok
+test_missing_and_risk (test_agent.AgentTest.test_missing_and_risk) ... ok
+test_missing_request (test_agent.AgentTest.test_missing_request) ... ok
+test_model_failure_before_skill_preserves_reason (test_agent.AgentTest.test_model_failure_before_skill_preserves_reason) ... 2026-11-08 23:36:52,071 | WARNING | _agent:_call_model:3400 - Model offline-mock exhausted all 1 attempt(s) for agent 排期助手.
+ok
+test_multiple_skill_calls_respect_tool_limit (test_agent.AgentTest.test_multiple_skill_calls_respect_tool_limit) ... ok
+test_normal_and_repeat (test_agent.AgentTest.test_normal_and_repeat) ... ok
+test_opencode_model_sets_session_header (test_agent.AgentTest.test_opencode_model_sets_session_header) ... ok
+test_output_exposes_saved_and_unsaved_draft_status (test_agent.AgentTest.test_output_exposes_saved_and_unsaved_draft_status) ... ok
+test_save_failure_and_step_limit (test_agent.AgentTest.test_save_failure_and_step_limit) ... 2026-11-08 23:36:52,246 | WARNING | _agent:_next_action:3737 - Agent 排期助手 exceeds the max iteration numbers 1. Stop the react loop.
+ok
+test_saved_draft_blocks_another_material_at_same_time (test_agent.AgentTest.test_saved_draft_blocks_another_material_at_same_time) ... ok
+test_skipping_skill_cannot_execute_business_tools (test_agent.AgentTest.test_skipping_skill_cannot_execute_business_tools) ... ok
+test_stale_slot_result_cannot_create_conflicting_draft (test_agent.AgentTest.test_stale_slot_result_cannot_create_conflicting_draft) ... ok
+test_tool_trace_does_not_reuse_previous_decision_text (test_agent.AgentTest.test_tool_trace_does_not_reuse_previous_decision_text) ... ok
+test_user_can_confirm_pending_draft_from_cli (test_agent.AgentTest.test_user_can_confirm_pending_draft_from_cli) ... ok
+test_conflict_accepts_explicit_confirmation_after_query (test_eval.EvaluationMetricTest.test_conflict_accepts_explicit_confirmation_after_query) ... ok
+test_conflict_accepts_pending_and_rejects_unconfirmed_claim (test_eval.EvaluationMetricTest.test_conflict_accepts_pending_and_rejects_unconfirmed_claim) ... ok
+test_conflict_rejects_unrelated_error_without_query (test_eval.EvaluationMetricTest.test_conflict_rejects_unrelated_error_without_query) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 4.052s
+
+OK

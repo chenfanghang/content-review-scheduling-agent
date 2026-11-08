@@ -1,0 +1,22 @@
+{
+  "M01": {
+    "title": "字幕功能介绍",
+    "description": "介绍字幕功能",
+    "risk": "none"
+  },
+  "M02": {
+    "title": "信息不完整",
+    "description": "",
+    "risk": "none"
+  },
+  "M03": {
+    "title": "夸大宣传",
+    "description": "未经证实的绝对化宣传",
+    "risk": "block"
+  },
+  "M04": {
+    "title": "剪辑功能介绍",
+    "description": "介绍剪辑功能",
+    "risk": "none"
+  }
+}

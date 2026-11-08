@@ -1,0 +1,43 @@
+{
+  "status": "incomplete",
+  "material_id": "M02",
+  "review_status": "not_reviewed",
+  "risk_reasons": [],
+  "requested_time": "2026-12-01T17:00",
+  "suggested_time": null,
+  "confirmation_status": null,
+  "draft_status": "not_saved",
+  "review": null,
+  "draft": null,
+  "reason": "我已读取素材，发现必要信息缺失，因此按流程停止处理。\n\n**素材读取结果（M02）**\n- 标题：信息不完整\n- 描述：**空（缺失）**\n- 风险字段：none\n\n**依据与结论**\n按 content-scheduling 第 1 步：素材缺少必要信息时必须说明缺口并停止，不能继续后续审核、时段查询或保存草稿。\n\n**当前状态**\n- 审核：未进行（尚未调用规则检查）\n- 时段：未查询你要求的 2026-12-01T17:00，也未查询备选时段\n- 草稿：未保存\n- 该时间要求是硬性要求，但当前没有任何内容被确认\n\n**需要你补充**\n1. 素材的 `description`（正文/文案内容）——这是当前唯一明确的缺失项。\n2. 素材的标题目前是“信息不完整”一类的占位文本；如果它不是正式标题，也请一并提供正式标题。\n\n补齐上述信息后，我会重新读取素材、执行审核规则检查，再查询 2026-12-01T17:00 是否可用；若冲突，我会给出可用的备选时段供你选择，确认后再保存草稿（替代原定时间会标记为待确认）。",
+  "trace": [
+    {
+      "step": 1,
+      "tool": "Skill",
+      "arguments": {
+        "skill": "content-scheduling"
+      },
+      "result": {
+        "status": "read"
+      },
+      "decision_basis": null
+    },
+    {
+      "step": 2,
+      "tool": "read_material",
+      "arguments": {},
+      "result": {
+        "found": true,
+        "material": {
+          "title": "信息不完整",
+          "description": "",
+          "risk": "none"
+        },
+        "missing": [
+          "description"
+        ]
+      },
+      "decision_basis": "我先读取 content-scheduling 技能，以获取正确的工作流程。"
+    }
+  ]
+}

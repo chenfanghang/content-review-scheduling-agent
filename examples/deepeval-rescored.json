@@ -1,0 +1,42 @@
+{
+  "source": "deepeval-opencode.json",
+  "note": "原始模型运行记录的重新评分，非新模型调用",
+  "runs": [
+    {
+      "case": "normal",
+      "score": 1.0,
+      "classification": "passed",
+      "reason": "业务断言通过"
+    },
+    {
+      "case": "conflict",
+      "score": 1.0,
+      "classification": "passed",
+      "reason": "业务断言通过"
+    },
+    {
+      "case": "missing",
+      "score": 1.0,
+      "classification": "passed",
+      "reason": "业务断言通过"
+    },
+    {
+      "case": "risk",
+      "score": 1.0,
+      "classification": "passed",
+      "reason": "业务断言通过"
+    },
+    {
+      "case": "save_failure",
+      "score": 1.0,
+      "classification": "passed",
+      "reason": "业务断言通过"
+    },
+    {
+      "case": "repeat",
+      "score": 1.0,
+      "classification": "passed",
+      "reason": "业务断言通过"
+    }
+  ]
+}
